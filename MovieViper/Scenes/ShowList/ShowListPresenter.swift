@@ -40,7 +40,8 @@ extension ShowListPresenter: ShowListInteractorDelegate {
         case .showLoading(let isLoading):
             view.handleOutput(.showLoading(isLoading))
         case .showTVSeries(let tvSeries):
-            view.handleOutput(.showTVSeries(tvSeries))
+            let cellPresentation = tvSeries.map ({ShowListCellPresentation(posterPath: $0.posterPath)})
+            view.handleOutput(.showTVSeries(cellPresentation))
         }
     }
 }

@@ -49,6 +49,13 @@
 			);
 			target = 8608CEAB2EFE2B5600463701 /* MovieViper */;
 		};
+		8608CEEC2F00862F00463701 /* Exceptions for "Presentations" folder in "MovieViper" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ShowListCellPresentation.swift,
+			);
+			target = 8608CEAB2EFE2B5600463701 /* MovieViper */;
+		};
 		864E11FE2EFCC0D400BEFC70 /* Exceptions for "MovieList" folder in "MovieList" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -91,6 +98,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8608CEE82F00860700463701 /* Presentations */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8608CEEC2F00862F00463701 /* Exceptions for "Presentations" folder in "MovieViper" target */,
+			);
+			path = Presentations;
+			sourceTree = "<group>";
+		};
 		864E11EE2EFCC0D300BEFC70 /* MovieList */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -123,6 +138,7 @@
 		864E11E32EFCC0D300BEFC70 = {
 			isa = PBXGroup;
 			children = (
+				8608CEE82F00860700463701 /* Presentations */,
 				8608CECA2EFE2B6700463701 /* Models */,
 				8608CEC52EFE2B6400463701 /* Managers */,
 				8608CEC22EFE2B6100463701 /* Network */,
@@ -182,6 +198,7 @@
 				8608CEC22EFE2B6100463701 /* Network */,
 				8608CEC52EFE2B6400463701 /* Managers */,
 				8608CECA2EFE2B6700463701 /* Models */,
+				8608CEE82F00860700463701 /* Presentations */,
 				864E11EE2EFCC0D300BEFC70 /* MovieList */,
 			);
 			name = MovieList;

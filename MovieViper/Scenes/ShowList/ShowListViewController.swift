@@ -12,7 +12,10 @@ final class ShowListViewController: UIViewController {
     // vc sadece presenterla haberleşiyor o yüzden biz buraya sadece presenter dependencysi koyduk.
     var presenter: ShowListPresenterProtocol!
     
-    var tvSeries: [TVSeries] = []
+    //var tvSeries: [TVSeries] = [] artık burada model tutmaya ihtiyacım yok presentation objem var
+    
+    var tvSeries: [ShowListCellPresentation] = []
+    
     
     private var mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -80,6 +83,7 @@ final class ShowListViewController: UIViewController {
 extension ShowListViewController: ShowListViewProtocol {
     
     func handleOutput(_ output: ShowListPresenterOutput) {
+        //presenter datayı olduğu gibi vermemeli vcnin ihtiyacı olacağı şekilde verir
         switch output {
         case .showTVSeries(let tvSeries):
             self.tvSeries.append(contentsOf: tvSeries)
@@ -108,8 +112,11 @@ extension ShowListViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as! PosterCollectionViewCell
-        let serie = tvSeries[indexPath.row]
-        cell.configure(posterPath: serie.posterPath, showBorder: true)
+        let cellPresentation = tvSeries[indexPath.row]
+        //ben burada cell modeli tutuyordum böyle yapmamam gerekli, postercell bir presantation objesi almalı
+//        cell.configure(posterPath: serie.posterPath, showBorder: true)
+        
+        cell.configure(presentation: cellPresentation)
         return cell
     }
     

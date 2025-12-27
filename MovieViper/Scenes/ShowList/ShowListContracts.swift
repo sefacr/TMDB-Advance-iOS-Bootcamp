@@ -17,7 +17,7 @@ protocol ShowListPresenterProtocol: AnyObject {
 }
 
 enum ShowListPresenterOutput {
-    case showTVSeries([TVSeries])
+    case showTVSeries([ShowListCellPresentation])
     case showLoading(Bool)
 }
 
