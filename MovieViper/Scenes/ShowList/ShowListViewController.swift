@@ -13,8 +13,7 @@ final class ShowListViewController: UIViewController {
     var presenter: ShowListPresenterProtocol!
     
     //var tvSeries: [TVSeries] = [] artık burada model tutmaya ihtiyacım yok presentation objem var
-    
-    var tvSeries: [ShowListCellPresentation] = []
+//    var tvSeries: [ShowListCellPresentation] = [] presentation objei de tutmayacağım çünkü bana artık presentor ne gerekiyorsa verecek
     
     
     private var mainCollectionView: UICollectionView = {
@@ -85,8 +84,7 @@ extension ShowListViewController: ShowListViewProtocol {
     func handleOutput(_ output: ShowListPresenterOutput) {
         //presenter datayı olduğu gibi vermemeli vcnin ihtiyacı olacağı şekilde verir
         switch output {
-        case .showTVSeries(let tvSeries):
-            self.tvSeries.append(contentsOf: tvSeries)
+        case .showTVSeries:
             mainCollectionView.reloadData()
         case .showLoading(let isLoading):
             isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
@@ -107,12 +105,12 @@ extension ShowListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tvSeries.count
+        return presenter.itemCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as! PosterCollectionViewCell
-        let cellPresentation = tvSeries[indexPath.row]
+        let cellPresentation = presenter.getPresentation(at: indexPath.item)
         //ben burada cell modeli tutuyordum böyle yapmamam gerekli, postercell bir presantation objesi almalı
 //        cell.configure(posterPath: serie.posterPath, showBorder: true)
         

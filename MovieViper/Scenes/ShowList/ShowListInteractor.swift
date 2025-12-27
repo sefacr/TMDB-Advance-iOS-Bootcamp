@@ -8,7 +8,7 @@
 import Foundation
 
 final class ShowListInteractor: ShowListInteractorProtocol {
-    
+        
     weak var delegate: ShowListInteractorDelegate?
     var service: ShowListServiceProtocol!
     
@@ -22,7 +22,7 @@ final class ShowListInteractor: ShowListInteractorProtocol {
 //            guard let self = self else { return }
             // swift 5 ile beraber sağdaki ve soldaki aynı isimse direk self diyebiliyorum.
             guard let self else { return }
-            self.delegate?.handleOutput(.showLoading(true))
+            self.delegate?.handleOutput(.showLoading(false))
             //self'i zaten unwrapplediğimiz için delegate başına self demeyebilirim.
             switch result {
             case .success(let tvSeries):
@@ -32,5 +32,4 @@ final class ShowListInteractor: ShowListInteractorProtocol {
             }
         }
     }
-    
 }

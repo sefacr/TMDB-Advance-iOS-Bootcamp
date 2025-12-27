@@ -13,6 +13,8 @@ import Foundation
 
 // View Controller -> Presenter
 protocol ShowListPresenterProtocol: AnyObject {
+    var itemCount: Int { get }
+    func getPresentation(at index: Int) -> ShowListCellPresentation
     func loadData()
 }
 

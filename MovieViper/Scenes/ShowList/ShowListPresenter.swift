@@ -16,9 +16,11 @@ final class ShowListPresenter {
     private unowned let view: ShowListViewProtocol!
     //hem presenter viewla em de view presenterla haberleşiyor bu yüzden birisi weak olmalı
     
+    private var tvSeries: [ShowListCellPresentation] = []
+    
     init(
         interactor: ShowListInteractorProtocol!,
-        view: ShowListViewProtocol!
+        view: ShowListViewProtocol!,
     ) {
         self.interactor = interactor
         self.view = view
@@ -27,6 +29,14 @@ final class ShowListPresenter {
 }
 
 extension ShowListPresenter: ShowListPresenterProtocol {
+    
+    var itemCount: Int {
+        return tvSeries.count
+    }
+    
+    func getPresentation(at index: Int) -> ShowListCellPresentation {
+        return tvSeries[index]
+    }
     
     func loadData() {
         interactor.loadData()
@@ -40,8 +50,9 @@ extension ShowListPresenter: ShowListInteractorDelegate {
         case .showLoading(let isLoading):
             view.handleOutput(.showLoading(isLoading))
         case .showTVSeries(let tvSeries):
-            let cellPresentation = tvSeries.map ({ShowListCellPresentation(posterPath: $0.posterPath)})
-            view.handleOutput(.showTVSeries(cellPresentation))
+            let cellPresentations = tvSeries.map ({ShowListCellPresentation(posterPath: $0.posterPath)})
+            self.tvSeries.append(contentsOf: cellPresentations)
+            view.handleOutput(.showTVSeries(cellPresentations))
         }
     }
 }
