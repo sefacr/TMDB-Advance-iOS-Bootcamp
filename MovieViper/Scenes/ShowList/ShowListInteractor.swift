@@ -12,6 +12,8 @@ final class ShowListInteractor: ShowListInteractorProtocol {
     weak var delegate: ShowListInteractorDelegate?
     var service: ShowListServiceProtocol!
     
+    var tvSeries: [TVSeries] = []
+    
     init(service: ShowListServiceProtocol!) {
         self.service = service
     }
@@ -26,10 +28,16 @@ final class ShowListInteractor: ShowListInteractorProtocol {
             //self'i zaten unwrapplediğimiz için delegate başına self demeyebilirim.
             switch result {
             case .success(let tvSeries):
+                self.tvSeries.append(contentsOf: tvSeries)
                 self.delegate?.handleOutput(.showTVSeries(tvSeries))
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    func selectTVSeries(_ index: Int) {
+        let tvSerie = self.tvSeries[index]
+        self.delegate?.handleOutput(.selectTVSerie(tvSerie))
     }
 }

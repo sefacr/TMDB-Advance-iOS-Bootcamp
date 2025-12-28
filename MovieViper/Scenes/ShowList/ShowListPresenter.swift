@@ -13,6 +13,7 @@ final class ShowListPresenter {
     //hem router hem interactorle haberleşir (router eklenecek)
     
     private let interactor: ShowListInteractorProtocol!
+    private let router: ShowListRouterProtocol!
     private unowned let view: ShowListViewProtocol!
     //hem presenter viewla em de view presenterla haberleşiyor bu yüzden birisi weak olmalı
     
@@ -21,9 +22,11 @@ final class ShowListPresenter {
     init(
         interactor: ShowListInteractorProtocol!,
         view: ShowListViewProtocol!,
+        router: ShowListRouterProtocol!
     ) {
         self.interactor = interactor
         self.view = view
+        self.router = router
         self.interactor.delegate = self
     }
 }
@@ -41,6 +44,10 @@ extension ShowListPresenter: ShowListPresenterProtocol {
     func loadData() {
         interactor.loadData()
     }
+    
+    func selectTVSeries(at index: Int) {
+        interactor.selectTVSeries(index)
+    }
 }
 
 extension ShowListPresenter: ShowListInteractorDelegate {
@@ -53,6 +60,8 @@ extension ShowListPresenter: ShowListInteractorDelegate {
             let cellPresentations = tvSeries.map ({ShowListCellPresentation(posterPath: $0.posterPath)})
             self.tvSeries.append(contentsOf: cellPresentations)
             view.handleOutput(.showTVSeries(cellPresentations))
+        case .selectTVSerie(let tvSerie):
+            router.navigate(to: .showTVDetails(tvSerie))
         }
     }
 }

@@ -131,6 +131,6 @@ extension ShowListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        presenter.selectTVSeries(at: indexPath.item)
     }
 }

@@ -14,7 +14,8 @@ final class ShowListBuilder {
         let viewController = ShowListViewController()
         let service = ShowListService() // hiçbir dependencysi yok, o kendi içerisinde yapıyor zaten protokoller üzerinden haberleşiyor
         let interactor = ShowListInteractor(service: service)
-        let presenter = ShowListPresenter(interactor: interactor, view: viewController)
+        let router = ShowListRouter(view: viewController)
+        let presenter = ShowListPresenter(interactor: interactor, view: viewController, router: router)
         viewController.presenter = presenter
         //interactor delegate selfi presenter ancak presentter initte verdim, vermeseydim ve private değilse burada verecektim interactor.delegate = presenter gibi
         
