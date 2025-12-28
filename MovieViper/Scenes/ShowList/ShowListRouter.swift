@@ -18,7 +18,7 @@ final class ShowListRouter: ShowListRouterProtocol {
     func navigate(to route: ShowListRoute) {
         switch route {
         case .showTVDetails(let tvShow):
-            let vc = UIViewController()
+            let vc = ShowDetailBuilder.make(tvSerie: tvShow)
             self.view.show(vc, sender: nil)
             //show: navigation stackteyse pushlar değilse modal olarak gösterir
         }

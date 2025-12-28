@@ -21,4 +21,9 @@ struct ShowListCellPresentation {
         self.posterPath = posterPath
         self.showBorder = showBorder
     }
+    
+    init(tvShow: TVSeries) {
+        self.posterPath = tvShow.posterPath
+        self.showBorder = true
+    }
 }
