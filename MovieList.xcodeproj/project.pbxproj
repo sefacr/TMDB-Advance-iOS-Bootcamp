@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		8608CEAC2EFE2B5600463701 /* MovieViper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieViper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8608CFD72F01DB5300463701 /* MovieCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864E11EC2EFCC0D300BEFC70 /* MovieList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -56,6 +57,50 @@
 			);
 			target = 8608CEAB2EFE2B5600463701 /* MovieViper */;
 		};
+		8608CFE82F01DB5400463701 /* Exceptions for "MovieCleanSwift" folder in "MovieCleanSwift" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8608CFD62F01DB5300463701 /* MovieCleanSwift */;
+		};
+		8608D00C2F01DBE800463701 /* Exceptions for "Models" folder in "MovieCleanSwift" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Genre.swift,
+				TVSeries.swift,
+				Types.swift,
+			);
+			target = 8608CFD62F01DB5300463701 /* MovieCleanSwift */;
+		};
+		8608D0102F01DC0700463701 /* Exceptions for "Network" folder in "MovieCleanSwift" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TMDBAPI.swift,
+			);
+			target = 8608CFD62F01DB5300463701 /* MovieCleanSwift */;
+		};
+		8608D0122F01DC0C00463701 /* Exceptions for "Presentations" folder in "MovieCleanSwift" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ShowListCellPresentation.swift,
+			);
+			target = 8608CFD62F01DB5300463701 /* MovieCleanSwift */;
+		};
+		8608D0142F01DC2600463701 /* Exceptions for "Managers" folder in "MovieCleanSwift" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TMDBImageManager.swift,
+			);
+			target = 8608CFD62F01DB5300463701 /* MovieCleanSwift */;
+		};
+		8608D0162F01DC3600463701 /* Exceptions for "MovieList" folder in "MovieCleanSwift" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Modules/TvShows/Cells/PosterCollectionViewCell.swift,
+			);
+			target = 8608CFD62F01DB5300463701 /* MovieCleanSwift */;
+		};
 		864E11FE2EFCC0D400BEFC70 /* Exceptions for "MovieList" folder in "MovieList" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -78,6 +123,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				8608CED52EFE2BF100463701 /* Exceptions for "Network" folder in "MovieViper" target */,
+				8608D0102F01DC0700463701 /* Exceptions for "Network" folder in "MovieCleanSwift" target */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -86,6 +132,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				8608CED42EFE2BF100463701 /* Exceptions for "Managers" folder in "MovieViper" target */,
+				8608D0142F01DC2600463701 /* Exceptions for "Managers" folder in "MovieCleanSwift" target */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -94,6 +141,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				8608CED32EFE2BF100463701 /* Exceptions for "Models" folder in "MovieViper" target */,
+				8608D00C2F01DBE800463701 /* Exceptions for "Models" folder in "MovieCleanSwift" target */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -102,8 +150,17 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				8608CEEC2F00862F00463701 /* Exceptions for "Presentations" folder in "MovieViper" target */,
+				8608D0122F01DC0C00463701 /* Exceptions for "Presentations" folder in "MovieCleanSwift" target */,
 			);
 			path = Presentations;
+			sourceTree = "<group>";
+		};
+		8608CFD82F01DB5300463701 /* MovieCleanSwift */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8608CFE82F01DB5400463701 /* Exceptions for "MovieCleanSwift" folder in "MovieCleanSwift" target */,
+			);
+			path = MovieCleanSwift;
 			sourceTree = "<group>";
 		};
 		864E11EE2EFCC0D300BEFC70 /* MovieList */ = {
@@ -111,6 +168,7 @@
 			exceptions = (
 				864E11FE2EFCC0D400BEFC70 /* Exceptions for "MovieList" folder in "MovieList" target */,
 				8608CEE72EFEC57B00463701 /* Exceptions for "MovieList" folder in "MovieViper" target */,
+				8608D0162F01DC3600463701 /* Exceptions for "MovieList" folder in "MovieCleanSwift" target */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -119,6 +177,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		8608CEA92EFE2B5600463701 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8608CFD42F01DB5300463701 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -144,6 +209,7 @@
 				8608CEC22EFE2B6100463701 /* Network */,
 				864E11EE2EFCC0D300BEFC70 /* MovieList */,
 				8608CEAD2EFE2B5600463701 /* MovieViper */,
+				8608CFD82F01DB5300463701 /* MovieCleanSwift */,
 				864E11ED2EFCC0D300BEFC70 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -153,6 +219,7 @@
 			children = (
 				864E11EC2EFCC0D300BEFC70 /* MovieList.app */,
 				8608CEAC2EFE2B5600463701 /* MovieViper.app */,
+				8608CFD72F01DB5300463701 /* MovieCleanSwift.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +247,28 @@
 			);
 			productName = MovieViper;
 			productReference = 8608CEAC2EFE2B5600463701 /* MovieViper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8608CFD62F01DB5300463701 /* MovieCleanSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8608CFE92F01DB5400463701 /* Build configuration list for PBXNativeTarget "MovieCleanSwift" */;
+			buildPhases = (
+				8608CFD32F01DB5300463701 /* Sources */,
+				8608CFD42F01DB5300463701 /* Frameworks */,
+				8608CFD52F01DB5300463701 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8608CFD82F01DB5300463701 /* MovieCleanSwift */,
+			);
+			name = MovieCleanSwift;
+			packageProductDependencies = (
+			);
+			productName = MovieCleanSwift;
+			productReference = 8608CFD72F01DB5300463701 /* MovieCleanSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
 		864E11EB2EFCC0D300BEFC70 /* MovieList */ = {
@@ -221,6 +310,9 @@
 					8608CEAB2EFE2B5600463701 = {
 						CreatedOnToolsVersion = 26.0;
 					};
+					8608CFD62F01DB5300463701 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 					864E11EB2EFCC0D300BEFC70 = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -242,12 +334,20 @@
 			targets = (
 				864E11EB2EFCC0D300BEFC70 /* MovieList */,
 				8608CEAB2EFE2B5600463701 /* MovieViper */,
+				8608CFD62F01DB5300463701 /* MovieCleanSwift */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8608CEAA2EFE2B5600463701 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8608CFD52F01DB5300463701 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,6 +365,13 @@
 
 /* Begin PBXSourcesBuildPhase section */
 		8608CEA82EFE2B5600463701 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8608CFD32F01DB5300463701 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,6 +441,70 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sefa.MovieViper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8608CFEA2F01DB5400463701 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2G3QWK5MN;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieCleanSwift/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sefa.MovieCleanSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8608CFEB2F01DB5400463701 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2G3QWK5MN;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieCleanSwift/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sefa.MovieCleanSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -538,6 +709,15 @@
 			buildConfigurations = (
 				8608CEBD2EFE2B5700463701 /* Debug */,
 				8608CEBE2EFE2B5700463701 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8608CFE92F01DB5400463701 /* Build configuration list for PBXNativeTarget "MovieCleanSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8608CFEA2F01DB5400463701 /* Debug */,
+				8608CFEB2F01DB5400463701 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
