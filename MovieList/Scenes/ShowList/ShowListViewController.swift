@@ -44,6 +44,8 @@ final class ShowListViewController: UIViewController {
     
     var cellPresentation: [ShowListCellPresentation] = []
     
+    var coordinator: ShowListCoordinator?
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -112,8 +114,7 @@ extension ShowListViewController: ShowListViewModelDelegate {
     func navigate(to route: ShowListRoute) {
         switch route {
         case .detail(let viewModel):
-            self.show(ShowDetailBuilder.make(viewModel: viewModel), sender: nil)
-            
+            coordinator?.handle(route: .detail(viewModel))
         }
     }
 }

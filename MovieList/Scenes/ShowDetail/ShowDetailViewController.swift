@@ -138,6 +138,12 @@ final class ShowDetailViewController: UIViewController {
         }
     }
     
+    var coordinator: ShowDetailCoordinator?
+    
+    deinit {
+        coordinator?.didFinish()
+    }
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
