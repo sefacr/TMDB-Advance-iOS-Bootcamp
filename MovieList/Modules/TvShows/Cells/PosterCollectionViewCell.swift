@@ -51,6 +51,10 @@ class PosterCollectionViewCell: UICollectionViewCell {
         currentImagePath = nil
     }
     
+    func configure(presantation: ShowListCellPresentation) {
+        configure(posterPath: presantation.posterPath, showBorder: presantation.showBorder)
+    }
+    
     func configure(posterPath: String?, showBorder: Bool = false) {
         currentImagePath = posterPath
         

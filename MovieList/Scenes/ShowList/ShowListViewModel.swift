@@ -14,12 +14,13 @@ protocol ShowListViewModelProtocol: AnyObject {
 }
 
 enum ShowListViewModelOutput {
-    case displayShows([TVSeries])
+    case displayShows([ShowListCellPresentation])
     case showLoading(Bool)
 }
 
 protocol ShowListViewModelDelegate: AnyObject {
     func handleOutput(_ output: ShowListViewModelOutput)
+    func navigate(to route: ShowListRoute)
 }
 
 final class ShowListViewModel: ShowListViewModelProtocol {
@@ -42,8 +43,11 @@ final class ShowListViewModel: ShowListViewModelProtocol {
             delegate?.handleOutput(.showLoading(false))
             switch result {
             case .success(let tvSeries):
-                self.shows = tvSeries
-                delegate?.handleOutput(.displayShows(tvSeries))
+                self.shows.append(contentsOf: tvSeries)
+                let cellPresentations: [ShowListCellPresentation] = self.shows.map(
+                    { ShowListCellPresentation(tvShow: $0)}
+                )
+                delegate?.handleOutput(.displayShows(cellPresentations))
             case .failure(let error):
                 print(error)
             }
@@ -51,7 +55,15 @@ final class ShowListViewModel: ShowListViewModelProtocol {
     }
     
     func selectShow(at index: Int) {
-        
+        let show = shows[index]
+        delegate?.navigate(
+            to: .detail(
+                ShowDetailViewModel(
+                    tvShow: show,
+                    service: ShowDetailService()
+                )
+            )
+        )
     }
     
     

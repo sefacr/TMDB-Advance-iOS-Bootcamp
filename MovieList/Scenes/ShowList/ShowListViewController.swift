@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum ShowListRoute {
+    case detail(ShowDetailViewModelProtocol)
+}
+
 final class ShowListViewController: UIViewController {
     
     private var mainCollectionView: UICollectionView = {
@@ -38,7 +42,7 @@ final class ShowListViewController: UIViewController {
         }
     }
     
-    var tvShows: [TVSeries] = []
+    var cellPresentation: [ShowListCellPresentation] = []
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -90,10 +94,11 @@ final class ShowListViewController: UIViewController {
 // MARK: - Delegate
 
 extension ShowListViewController: ShowListViewModelDelegate {
+    
     func handleOutput(_ output: ShowListViewModelOutput) {
         switch output {
         case .displayShows(let tvSeries):
-            self.tvShows.append(contentsOf: tvSeries)
+            self.cellPresentation.append(contentsOf: tvSeries)
             mainCollectionView.reloadData()
         case .showLoading(let isLoading):
             if isLoading {
@@ -101,6 +106,14 @@ extension ShowListViewController: ShowListViewModelDelegate {
             }else {
                 activityIndicator.stopAnimating()
             }
+        }
+    }
+    
+    func navigate(to route: ShowListRoute) {
+        switch route {
+        case .detail(let viewModel):
+            self.show(ShowDetailBuilder.make(viewModel: viewModel), sender: nil)
+            
         }
     }
 }
@@ -121,14 +134,15 @@ extension ShowListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tvShows.count
+        return cellPresentation.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as! PosterCollectionViewCell
         
-        let tvShows = tvShows[indexPath.item]
-        cell.configure(posterPath: tvShows.posterPath, showBorder: true)
+        let cellPresentation = cellPresentation[indexPath.item]
+        
+        cell.configure(presantation: cellPresentation)
         return cell
     }
     
@@ -145,6 +159,6 @@ extension ShowListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        viewModel.selectShow(at: indexPath.item)
     }
 }
