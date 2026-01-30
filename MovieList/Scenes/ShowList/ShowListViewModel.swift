@@ -26,7 +26,7 @@ protocol ShowListViewModelDelegate: AnyObject {
 final class ShowListViewModel: ShowListViewModelProtocol {
     
 //    var delegate: ShowListViewModelDelegate?
-    var delegate: (any ShowListViewModelDelegate)? //swift 5.7 ile geldi
+    weak var delegate: (any ShowListViewModelDelegate)? //swift 5.7 ile geldi
     
     private let service: ShowListServiceProtocol
     
@@ -44,7 +44,7 @@ final class ShowListViewModel: ShowListViewModelProtocol {
             switch result {
             case .success(let tvSeries):
                 self.shows.append(contentsOf: tvSeries)
-                let cellPresentations: [ShowListCellPresentation] = self.shows.map(
+                let cellPresentations: [ShowListCellPresentation] = tvSeries.map(
                     { ShowListCellPresentation(tvShow: $0)}
                 )
                 delegate?.handleOutput(.displayShows(cellPresentations))
@@ -65,6 +65,4 @@ final class ShowListViewModel: ShowListViewModelProtocol {
             )
         )
     }
-    
-    
 }

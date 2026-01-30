@@ -43,3 +43,7 @@ private let session: URLSession = {
    }
     
 }
+
+enum TVSeriesError: Error {
+    case tvSeriesCreationError
+}
